@@ -1,0 +1,10 @@
+#!/bin/sh
+
+if [ -z "$ERSA_REPORTING_PACKAGE" ]; then
+  echo "Missing environment: ERSA_REPORTING_PACKAGE"
+  exit 1
+fi
+
+fullname=ersa_reporting.$ERSA_REPORTING_PACKAGE
+
+ersa-reporting-prep fullname && gunicorn --timeout 7200 --name $ERSA_REPORTING_PACKAGE $fullname:app
