@@ -7,4 +7,4 @@ fi
 
 fullname=ersa_reporting.$ERSA_REPORTING_PACKAGE
 
-ersa-reporting-prep fullname && gunicorn --timeout 7200 --name $ERSA_REPORTING_PACKAGE $fullname:app
+ersa-reporting-prep $fullname && gunicorn --timeout 7200 --name $ERSA_REPORTING_PACKAGE $fullname:app
