@@ -18,7 +18,7 @@ RUN apt-get clean
 
 RUN curl -sL https://bootstrap.pypa.io/get-pip.py | python3
 RUN pip install --no-cache-dir gunicorn
-RUN pip install --no-cache-dir --process-dependency-links https://github.com/eResearchSA/reporting-unified/archive/v0.2.0.tar.gz
+RUN pip install --no-cache-dir --process-dependency-links https://github.com/eResearchSA/reporting-unified/archive/v0.3.0.tar.gz
 
 COPY run /
 CMD ["/run"]
