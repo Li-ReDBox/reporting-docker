@@ -5,6 +5,8 @@ if [ -z "$ERSA_REPORTING_PACKAGE" ]; then
   exit 1
 fi
 
+export WEB_CONCURRENCY=8
+
 fullname=ersa_reporting.$ERSA_REPORTING_PACKAGE
 
 ersa-reporting-prep $fullname && gunicorn --access-logformat - --user ubuntu --group ubuntu --bind 0.0.0.0:8000 --timeout 7200 --name $ERSA_REPORTING_PACKAGE $fullname:app
